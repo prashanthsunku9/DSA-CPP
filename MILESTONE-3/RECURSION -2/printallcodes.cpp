@@ -18,7 +18,8 @@ aaw
 kw
 */
 
-#include <string>
+
+#include<bits/stdc++.h>
 using namespace std;
 void help(string a, string cur,int i){ 
     
@@ -31,15 +32,17 @@ void help(string a, string cur,int i){
     help(a,cur,i+1);
     // if(i==0) cout<<cur<<"---\n";
     cur.pop_back();
-    if(i+1<a.size()  && ((a[i]-'0')*10+(a[i+1]-'0')>=10 && (a[i]-'0')*10+(a[i+1]-'0')<=26)){
+    int p=(a[i]-'0')*10+(a[i+1]-'0');
+    if(i+1<a.size()  && (p>=10 && p<=26)){
         
     
-      cur.push_back((a[i] - '0')*10 + (a[i + 1] - '0')+'a'-1);
+      cur.push_back(p+'a'-1);
       help(a,cur,i+2);
     } 
 }
             
-void printAllPossibleCodes(string input) {
-    
-    help(input, "",0);
+int main(){
+    string s;cin>>s;
+
+    help(s,"",0);
 }
